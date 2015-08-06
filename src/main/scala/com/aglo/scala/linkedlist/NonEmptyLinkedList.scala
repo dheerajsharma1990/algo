@@ -16,4 +16,5 @@ class NonEmptyLinkedList(val node: ListNode, val tail: LinkedList) extends Linke
 
   override def isHeadEqual(n: ListNode): Boolean = node.equals(n)
 
+  override def isPalindrome: Boolean = reverse(new EmptyLinkedList).isEqual(this)
 }

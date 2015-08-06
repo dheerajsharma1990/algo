@@ -15,4 +15,6 @@ class EmptyLinkedList extends LinkedList {
   override def isEqual(other: LinkedList): Boolean = other.size == 0
 
   override def isHeadEqual(n: ListNode): Boolean = false
+
+  override def isPalindrome: Boolean = true
 }
