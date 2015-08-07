@@ -17,4 +17,5 @@ trait LinkedList {
   def isEqual(other: LinkedList): Boolean
 
   def isPalindrome: Boolean
+
 }
