@@ -14,4 +14,6 @@ trait Tree {
 
   def value: Int
 
+  def isLeaf: Boolean
+
 }

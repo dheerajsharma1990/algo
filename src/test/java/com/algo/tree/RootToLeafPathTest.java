@@ -1,6 +1,5 @@
-package com.algo.linkedlist;
+package com.algo.tree;
 
-import com.algo.tree.TreeNode;
 import org.testng.annotations.Test;
 
 import java.util.List;

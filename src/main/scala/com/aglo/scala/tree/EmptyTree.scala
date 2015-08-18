@@ -12,4 +12,6 @@ class EmptyTree extends Tree {
   override def value: Int = throw new NoSuchElementException("EmptyTree.value")
 
   override def right: Tree = throw new NoSuchElementException("EmptyTree.right")
+
+  override def isLeaf: Boolean = false
 }

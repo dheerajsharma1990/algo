@@ -1,6 +1,4 @@
-package com.algo.linkedlist;
-
-import com.algo.tree.TreeNode;
+package com.algo.tree;
 
 import java.util.*;
 
