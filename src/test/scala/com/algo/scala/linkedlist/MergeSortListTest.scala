@@ -9,13 +9,6 @@ class MergeSortListTest extends FunSuite {
 
   def sort(list: List[Int]): List[Int] = {
 
-    if (list.length < 2) list
-    else {
-      val (first, second) = list.splitAt(list.length / 2)
-      merge(sort(first), sort(second))
-    }
-
-
     def merge(list1: List[Int], list2: List[Int]): List[Int] = {
       (list1, list2) match {
         case (Nil, list2) => list2
@@ -23,6 +16,13 @@ class MergeSortListTest extends FunSuite {
         case (f :: fr, s :: sr) => if (f < s) f :: merge(fr, list2) else s :: merge(list1, sr)
       }
     }
+
+    if (list.length < 2) list
+    else {
+      val (first, second) = list.splitAt(list.length / 2)
+      merge(sort(first), sort(second))
+    }
+
   }
 
   test("Sort single element") {
