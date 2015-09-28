@@ -14,10 +14,4 @@ class DuplicateScalaTest extends FunSuite {
     assert(containsDuplicate(Array(0, 1, 1)))
   }
 
-
-
-  test("1 more should be missing") {
-    assert(missingNumber(Array(0,2)) === 1)
-  }
-
 }
