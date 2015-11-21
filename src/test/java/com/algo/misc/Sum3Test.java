@@ -15,10 +15,10 @@ public class Sum3Test {
         Collections.sort(a);
         int totalSum = b;
         boolean found = false;
+        int diff = Integer.MAX_VALUE;
         for (int i = 0; i < a.size() - 2 && !found; i++) {
             int sum = b - a.get(i);
             int j = 0, k = a.size() - 1;
-            int diff = Integer.MAX_VALUE;
             while (j < k) {
                 if (i == j) {
                     j++;
@@ -60,5 +60,6 @@ public class Sum3Test {
         assertThat(threeSumClosest(Arrays.asList(-1, 0, 1), -3), is(0));
         assertThat(threeSumClosest(Arrays.asList(-1, 0, 1), 0), is(0));
         assertThat(threeSumClosest(Arrays.asList(-4, -3, -2, -1), 0), is(-6));
+        assertThat(threeSumClosest(Arrays.asList(0, 2, 1, -3), 1), is(0));
     }
 }
