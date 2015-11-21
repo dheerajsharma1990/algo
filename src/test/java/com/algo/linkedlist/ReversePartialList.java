@@ -61,7 +61,7 @@ public class ReversePartialList {
     }
 
     @Test
-    public void shouldAddTwoNumbers() {
+    public void shouldReversePartialList() {
         assertThat(isEqual(reverseBetween(getList(1), 1, 1), getList(1)), is(true));
         assertThat(isEqual(reverseBetween(getList(1, 2), 1, 1), getList(1, 2)), is(true));
         assertThat(isEqual(reverseBetween(getList(1, 2), 1, 2), getList(2, 1)), is(true));
