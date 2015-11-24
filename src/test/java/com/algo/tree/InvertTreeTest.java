@@ -7,48 +7,74 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class InvertTreeTest {
+    class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-    private final InvertTree invertTree = new InvertTree();
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode left = invertTree(root.left);
+        TreeNode right = invertTree(root.right);
+        TreeNode temp = left;
+        root.left = right;
+        root.right = temp;
+        return root;
+    }
+
 
     @Test
-    public void shouldInvertASingleNodeTree() {
+    public void shouldInvertSingleNodeTree() {
         //given
-        TreeNode root = new TreeNode(1, null, null);
+        TreeNode node = new TreeNode(1);
 
         //when
-        invertTree.invertTree(root);
+        TreeNode invert = invertTree(node);
 
         //then
-        assertThat(root.getLeft(), nullValue());
-        assertThat(root.getRight(), nullValue());
-        assertThat(root.getValue(), is(1));
+        assertThat(invert.left, nullValue());
+        assertThat(invert.right, nullValue());
+        assertThat(invert.val, is(1));
     }
 
     @Test
-    public void shouldInvertASkewedTree() {
+    public void shouldInvertSkewedTree() {
         //given
-        TreeNode root = new TreeNode(1, new TreeNode(2, null, null), null);
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.left.left = new TreeNode(3);
 
         //when
-        invertTree.invertTree(root);
+        TreeNode invert = invertTree(node);
 
         //then
-        assertThat(root.getLeft(), nullValue());
-        assertThat(root.getRight().getValue(), is(2));
-        assertThat(root.getValue(), is(1));
+        assertThat(invert.left, nullValue());
+        assertThat(invert.right.val, is(2));
+        assertThat(invert.right.right.val, is(3));
+        assertThat(invert.val, is(1));
     }
 
     @Test
-    public void shouldInvertACompleteTree() {
+    public void shouldInvertPerfectTree() {
         //given
-        TreeNode root = new TreeNode(1, new TreeNode(2, null, null), new TreeNode(3, null, null));
+        TreeNode node = new TreeNode(1);
+        node.left = new TreeNode(2);
+        node.right = new TreeNode(3);
 
         //when
-        invertTree.invertTree(root);
+        TreeNode invert = invertTree(node);
 
         //then
-        assertThat(root.getLeft().getValue(), is(3));
-        assertThat(root.getRight().getValue(), is(2));
-        assertThat(root.getValue(), is(1));
+        assertThat(invert.right.val, is(2));
+        assertThat(invert.left.val, is(3));
+        assertThat(invert.val, is(1));
     }
+
 }
