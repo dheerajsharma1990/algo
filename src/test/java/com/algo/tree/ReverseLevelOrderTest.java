@@ -55,3 +55,69 @@ public class ReverseLevelOrderTest {
     }
 
 }
+
+/*
+import java.io.*;
+import java.util.*;
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        int[] arr = parseArray(args);
+        Map<Integer,List<Integer>> map = createParentGraph(arr);
+        Stack<List<Integer>> stack = new Stack<>();
+        Queue<Integer> queue = new LinkedList<Integer>();
+        queue.add(-1);
+        queue.add(-2);
+        List<Integer> list = new ArrayList<>();
+        while(!queue.isEmpty()) {
+            int elem = queue.poll();
+            if(elem == -2) {
+                if(!list.isEmpty()) {
+                    stack.add(list);
+                    list = new ArrayList<Integer>();
+                    queue.add(-2);
+                }
+            } else {
+                if(map.containsKey(elem)) {
+                    for(int item : map.get(elem)) {
+                        queue.add(item);
+                        list.add(item);
+                    }
+                }
+            }
+
+        }
+        printResult(stack);
+    }
+
+    private static void printResult(Stack<List<Integer>> stack) {
+        while(!stack.isEmpty()) {
+            List<Integer> l = stack.pop();
+            for(int i = 0;i<l.size()-1;i++) {
+                System.out.print(l.get(i) + " ");
+            }
+            System.out.println(l.get(l.size()-1));
+        }
+    }
+
+    private static int[] parseArray(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int size = scanner.nextInt();
+        int[] arr = new int[size];
+        for(int i = 0; i<size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        return arr;
+    }
+
+    private static Map<Integer,List<Integer>> createParentGraph(int[] arr) {
+        Map<Integer,List<Integer>> map = new HashMap<>();
+        for(int i = 0; i < arr.length;i++) {
+            if(!map.containsKey(arr[i])) {
+                map.put(arr[i],new ArrayList<Integer>());
+            }
+            map.get(arr[i]).add(i);
+        }
+        return map;
+    }
+}
+ */
