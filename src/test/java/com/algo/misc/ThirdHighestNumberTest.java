@@ -11,10 +11,9 @@ public class ThirdHighestNumberTest {
 
     public int thirdMax(int[] nums) {
         List<Integer> ans = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            final int k = i;
-            if (ans.stream().noneMatch(item -> item == nums[k])) {
-                ans.add(nums[i]);
+        for (final int n : nums) {
+            if (ans.stream().noneMatch(item -> item == n)) {
+                ans.add(n);
                 Collections.sort(ans);
                 if (ans.size() > 3) {
                     ans.remove(0);
