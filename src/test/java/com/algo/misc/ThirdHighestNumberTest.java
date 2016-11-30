@@ -12,21 +12,14 @@ public class ThirdHighestNumberTest {
     public int thirdMax(int[] nums) {
         List<Integer> ans = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
-            boolean duplicates = false;
-            for (int j = 0; j < ans.size(); j++) {
-                if (ans.get(j) == nums[i]) {
-                    duplicates = true;
-                    break;
-                }
-            }
-            if (!duplicates) {
+            final int k = i;
+            if (ans.stream().noneMatch(item -> item == nums[k])) {
                 ans.add(nums[i]);
                 Collections.sort(ans);
                 if (ans.size() > 3) {
                     ans.remove(0);
                 }
             }
-
 
         }
         return ans.size() == 2 ? ans.get(1) : ans.get(0);
