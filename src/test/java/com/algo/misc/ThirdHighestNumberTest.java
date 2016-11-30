@@ -9,7 +9,7 @@ import static org.hamcrest.core.Is.is;
 
 public class ThirdHighestNumberTest {
 
-    public int thirdMax(int[] nums) {
+    private int thirdMax(int[] nums) {
         List<Integer> ans = new ArrayList<>();
         for (final int n : nums) {
             if (ans.stream().noneMatch(item -> item == n)) {
