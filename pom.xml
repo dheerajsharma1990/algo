@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <version>1.1.0</version>
+    <groupId>com.algo</groupId>
     <artifactId>algo</artifactId>
-    <packaging>jar</packaging>
-
+    <version>0.0.1-SNAPSHOT</version>
     <name>algo</name>
+    <description>Module with sample algorithsm</description>
 
     <dependencies>
         <dependency>
@@ -40,5 +40,24 @@
             </exclusions>
         </dependency>
     </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <maxmem>1024m</maxmem>
+                        <meminitial>128m</meminitial>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 
 </project>
